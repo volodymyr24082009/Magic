@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f8f8f8;
+    color: #4b3d6b;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #6c5ce7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar {
+    background: #6c5ce7;
+    color: white;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Схований за замовчуванням */
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0; /* Відображений */
+}
+
+.content {
+    margin-left: 220px; /* Відступ для бокової панелі */
+    padding: 20px;
+}
+
+#toggleSidebar {
+    background: #ffdd57;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.back-button {
+    background: #ffdd57;
+    color: #4b3d6b;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.back-button:hover {
+    background: #ffd700;
+}
+
+h2 {
+    margin-top: 40px;
+}

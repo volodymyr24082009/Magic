@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Чарівна кружка",
+        "price": 150,
+        "image": "https://example.com/image1.jpg"
+    },
+    {
+        "name": "Футболка з принтом",
+        "price": 300,
+        "image": "https://example.com/image2.jpg"
+    },
+    {
+        "name": "Чарівна книга",
+        "price": 400,
+        "image": "https://example.com/image3.jpg"
+    }
+]
