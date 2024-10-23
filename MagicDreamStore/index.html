@@ -3,37 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Dream Store</title>
+    <title>Magic Dream</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Magic Dream Store</h1>
-        <nav>
-            <ul>
-                <li><a href="#products">Продукти</a></li>
-                <li><a href="#contact">Контакти</a></li>
-                <li><a href="admin.html">Адмін Панель</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="products">
-            <h2>Наші Продукти</h2>
-            <div class="product-container"></div>
-        </section>
+<header>
+    <h1>Magic Dream</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">Про нас</a></li>
+            <li><a href="#products">Наші продукти</a></li>
+            <li><a href="#admin" id="adminToggle">Адміністративна панель</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <section id="contact">
-            <h2>Контакти</h2>
-            <p>Email: contact@magicdream.com</p>
-        </section>
-    </main>
+<main>
+    <section id="about">
+        <h2>Про нас</h2>
+        <p>Ласкаво просимо до нашого магазину магічних продуктів!</p>
+    </section>
 
-    <footer>
-        <p>© 2024 Magic Dream Store</p>
-    </footer>
+    <section id="products">
+        <h2>Наші продукти</h2>
+        <div class="product-container" id="productContainer">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="loginSection">
+        <h2>Увійти в адміністративну панель</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Електронна пошта" required>
+            <input type="password" id="password" placeholder="Пароль" required>
+            <button type="submit">Увійти</button>
+        </form>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+        <h2>Адміністративна панель</h2>
+        <form id="productForm">
+            <input type="text" id="productName" placeholder="Назва товару" required>
+            <input type="number" id="productPrice" placeholder="Ціна (грн)" required>
+            <input type="file" id="productImage" accept="image/*" required>
+            <button type="submit">Додати товар</button>
+        </form>
+        
+        <h3>Список товарів</h3>
+        <div id="existingProducts"></div>
+        <button id="closeAdmin">Закрити панель</button>
+    </section>
+    
+</main>
+
+<footer>
+    <p>© 2024 Magic Dream. Всі права захищено.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
