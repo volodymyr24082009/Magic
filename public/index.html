@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Dream</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Magic Dream</h1>
+</header>
+
+<main>
+    <section id="about">
+        <h2>Про нас</h2>
+        <p>Ласкаво просимо до Magic Dream!
+
+            У нашій крамниці ми прагнемо повернути ваші мрії на реальність через магію творчості. Magic Dream — це місце, де кожен товар наповнений особливим змістом і натхненням. Наша команда з натхненням створює унікальні вироби, натхнення українською культурою, казками та традиціями.
+            
+            Ми віримо в силу казок і їхній вплив на наше життя. Кожен наш продукт — це не просто річ, а частинка магії, яку ми прагнемо передати вам. Чи це стильний одяг, чи казкові аксесуари — у нас ви знайдете те, що зробить ваше життя більш яскравим і особливим.
+            
+            Наша мета — створити атмосферу, де кожен може знайти щось для себе, а також підтримати українських митців і ремісників. Усі наші товари виготовлені з любов'ю та увагою до деталей, що робить їх ідеальними для вас або як подарунок для близьких.
+            
+            Долучайтеся до нашого казкового світу!
+            
+            У Magic Dream ми не просто продаємо товари — ми створюємо емоції, спогади та можливість доторкнутися до магії у повсюдному житті. Ваша підтримка надихає нас продовжувати творити і дарувати вам найкраще.
+            
+            Дякуємо, що обрали нас! Разом ми можемо створити чарівні миті!</p>
+    </section>
+    <div class="background-animation">
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    
+        <!-- Snowflakes -->
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    </div>
+    
+    <section id="products">
+        <h2>Наші продукти</h2>
+        <div class="product-container" id="productContainer">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </section>
+
+
+
+    <section id="adminPanel" class="hidden">
+        <h2>Адміністративна панель</h2>
+        <form id="productForm">
+            <input type="text" id="productName" placeholder="Назва товару" required>
+            <input type="number" id="productPrice" placeholder="Ціна (грн)" required>
+            <input type="file" id="productImage" accept="image/*" required>
+            <button type="submit">Додати товар</button>
+        </form>
+        
+        <h3>Список товарів</h3>
+        <div id="existingProducts"></div>
+        <button id="closeAdmin">Закрити панель</button>
+    </section>
+
+ <!-- Блок кошика -->
+<section id="cartSection">
+    <h2>Ваш кошик</h2>
+    <div id="cartItems">
+        <!-- Товари в кошику будуть додаватися тут -->
+    </div>
+    <div id="cartActions">
+        <button id="placeOrderBtn" class="place-order-btn" style="display:none;">Оформити замовлення</button>
+        <!-- The Clear Cart button will be added dynamically -->
+    </div>
+    <p>Всього: <span id="totalPrice">0</span> грн</p>
+</section>
+
+
+
+<footer>
+    <p>© 2024 Magic Dream. Всі права захищено.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -90,24 +90,6 @@ function loadCartItems() {
 
     // Show or hide the place order button based on cart items
     document.getElementById('placeOrderBtn').style.display = cartItems.length > 0 ? 'block' : 'none';
-
-    // Add "Clear Cart" button if items exist in cart
-    const clearCartBtn = document.getElementById('clearCartBtn');
-    if (!clearCartBtn && cartItems.length > 0) {
-        const buttonDiv = document.createElement('div');
-        buttonDiv.innerHTML = `<button id="clearCartBtn">Очистити кошик</button>`;
-        document.getElementById('cartActions').appendChild(buttonDiv);
-        document.getElementById('clearCartBtn').addEventListener('click', clearCart);
-    } else if (clearCartBtn && cartItems.length === 0) {
-        clearCartBtn.parentElement.remove(); // Remove button if cart is empty
-    }
-}
-
-// Clear all items from the cart
-function clearCart() {
-    localStorage.removeItem('cart'); // Remove cart from local storage
-    alert('Ваш кошик очищено!'); // Alert user
-    loadCartItems(); // Reload the cart to show it is empty
 }
 
 // Load existing products in the admin panel
@@ -140,7 +122,7 @@ document.getElementById('productForm').addEventListener('submit', function (even
         products.push({
             name: productName,
             price: productPrice,
-            image: reader.result
+            image: reader.result // Use data URL
         });
         localStorage.setItem('products', JSON.stringify(products));
         alert('Товар успішно додано!');
@@ -150,6 +132,23 @@ document.getElementById('productForm').addEventListener('submit', function (even
     };
     reader.readAsDataURL(productImage);
 });
+
+// Delete product by index from admin panel
+function deleteProduct(index) {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    
+    // Remove product at the specified index
+    products.splice(index, 1);
+    
+    // Update localStorage with the updated product list
+    localStorage.setItem('products', JSON.stringify(products));
+    
+    alert('Товар видалено!');
+    
+    // Reload products on the main page and admin panel
+    loadProducts();
+    loadExistingProducts();
+}
 
 // Handle placing the order
 document.getElementById('placeOrderBtn').addEventListener('click', function() {
@@ -165,4 +164,30 @@ document.getElementById('placeOrderBtn').addEventListener('click', function() {
     alert('Дякуємо за замовлення! Ваше замовлення оформлено.');
 
     loadCartItems(); // Reload the cart to show that it's empty
+});
+document.getElementById('productForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const productName = document.getElementById('productName').value;
+    const productPrice = document.getElementById('productPrice').value;
+    const productImage = document.getElementById('productImage').files[0];
+
+    console.log('Product Name:', productName);
+    console.log('Product Price:', productPrice);
+    console.log('Product Image:', productImage);
+
+    const reader = new FileReader();
+    reader.onloadend = function () {
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        products.push({
+            name: productName,
+            price: productPrice,
+            image: reader.result
+        });
+        localStorage.setItem('products', JSON.stringify(products));
+        alert('Товар успішно додано!');
+        document.getElementById('productForm').reset();
+        loadProducts();
+        loadExistingProducts();
+    };
+    reader.readAsDataURL(productImage);
 });

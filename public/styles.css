@@ -1,0 +1,466 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle at top, #f0e3ff, #c3a4ff, #8b79d5);
+    color: #4b3d6b;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Background animation styles */
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Position behind other elements */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0.7;
+    animation: float 6s ease-in infinite;
+}
+
+.bubble:nth-child(1) {
+    left: 10%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 4s;
+}
+
+.bubble:nth-child(2) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-duration: 6s;
+}
+
+.bubble:nth-child(3) {
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 5s;
+}
+
+.bubble:nth-child(4) {
+    left: 75%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 7s;
+}
+
+.bubble:nth-child(5) {
+    left: 90%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 5s;
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(45deg, #6c5ce7, #a29bfe, #ff9ff3);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: magicalPulse 3s infinite alternate;
+}
+
+@keyframes magicalPulse {
+    0% {
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 4px 25px rgba(255, 255, 255, 0.8);
+    }
+}
+
+header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 300%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.2;
+    transform: translateX(-50%) rotate(10deg);
+    z-index: 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.8);
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+nav a:hover {
+    color: #ffeaa7;
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    font-family: 'Merriweather', serif;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+}
+
+h2 {
+    font-size: 2rem;
+    color: #6c5ce7;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+/* Input fields styles */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #6c5ce7;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    border-color: #a29bfe;
+    box-shadow: 0 0 5px rgba(100, 100, 255, 0.5);
+    outline: none;
+}
+
+/* Button styles */
+button {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Product container styles */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product {
+    background: linear-gradient(135deg, #dfe6e9, #b2bec3);
+    border: 2px solid #6c5ce7;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.product img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.product img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.product h3 {
+    font-size: 20px;
+    color: #4b3d6b;
+}
+
+.product p {
+    font-size: 16px;
+    color: #6c5ce7;
+    margin-bottom: 15px;
+}
+
+.product button {
+    background: linear-gradient(45deg, #ffeaa7, #fab1a0);
+    color: #4b3d6b;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.product button:hover {
+    background: linear-gradient(45deg, #ff7675, #ffeaa7);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Cart item styles */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.cart-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer styles */
+footer {
+    background: #6c5ce7;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-container {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Make sure it is behind other content */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px; /* Start below the viewport */
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation-name: rise;
+    animation-timing-function: ease-in;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh); /* Move to the top of the viewport */
+        opacity: 0; /* Fade out */
+    }
+}
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.star {
+    position: absolute;
+    background-color: yellow;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    animation: twinkle 1.5s infinite;
+}
+@keyframes sparkle {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-30px); opacity: 0; }
+}
+
+.dust {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: sparkle 1.5s infinite;
+}
+button:hover {
+    background-color: rgba(255, 223, 186, 0.8);
+    box-shadow: 0 0 20px rgba(255, 223, 186, 1);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+.portal {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.7);
+    position: relative;
+    animation: spin 5s infinite linear;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+.magic-wand {
+    cursor: url('path/to/magic-wand-icon.png'), auto; /* Replace with your icon */
+}
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.animated-background {
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+/* Snowflake styles */
+.snowflake {
+    position: absolute;
+    top: -10%; /* Start above the viewport */
+    background-color: white;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    animation: fall 3s linear infinite;
+}
+
+/* Falling animation for snowflakes */
+@keyframes fall {
+    0% {
+        transform: translateX(0);
+        top: -10%;
+    }
+    100% {
+        transform: translateX(20px); /* Random horizontal movement */
+        top: 100%; /* Move to the bottom */
+    }
+}
+
+/* Randomize the snowflakes */
+.snowflake:nth-child(6) {
+    left: 10%;
+    animation-duration: 4s;
+    animation-delay: 0s;
+}
+
+.snowflake:nth-child(7) {
+    left: 25%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.snowflake:nth-child(8) {
+    left: 50%;
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+}
+
+.snowflake:nth-child(9) {
+    left: 75%;
+    animation-duration: 6s;
+    animation-delay: 1.5s;
+}
+
+.snowflake:nth-child(10) {
+    left: 90%;
+    animation-duration: 4.5s;
+    animation-delay: 2s;
+}
